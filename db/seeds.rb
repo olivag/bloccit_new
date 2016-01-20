@@ -1,22 +1,7 @@
 require 'faker'
 
-#Create Posts
-50.times do
-  Post.create!(
-    title: Faker::Lorem.sentence,
-    body:  Faker::Lorem.paragraph
-    )
-end
-
-posts = Post.all
-
-#Create comments
-100.times do
-  Comment.create!(
-    post: posts.sample,
-    body: Faker::Lorem.paragraph
-  )
-end
+Post.find_or_create_by!(title: "Testing", body: "No duplicate")
+Comment.find_or_create_by!(post: Post.first, body: "Hope this works")
 
 puts "Seeds finished"
 puts "#{Post.count} posts created"
