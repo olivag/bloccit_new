@@ -1,7 +1,7 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
-      ##CUstomization
+      ##Customization
       t.string :name
       
       ## Database authenticatable
